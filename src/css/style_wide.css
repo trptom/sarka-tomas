@@ -1,0 +1,35 @@
+@media (min-width: 800px) {
+    .names {
+        font-size: 100px;
+    }
+    
+    .countdown {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .countdown .item:not(:last-of-type) {
+        margin-right: 30px;
+    }
+    
+    .countdown .item .number {
+        font-size: 30px;
+        border-radius: 5px;
+        width: 40px;
+        height: 60px;
+    }
+
+    .countdown .item .number + .number {
+        margin-left: 5px;
+    }
+    
+    .content-wrapper .content {
+        max-width: 1024px;
+    }
+    
+    .countdown .item .note {
+        font-size: 30px;
+        margin-left: 10px;
+    }
+}

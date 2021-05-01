@@ -1,0 +1,350 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    height: 0px;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 0px;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.app.app-loading * {
+    height: 0px;
+    flex-grow: 1;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.app.app-loading .text {
+    justify-content: flex-end;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.app.app-loading .loader {
+    background-image: url(../images/loader.gif);
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.navbar-wrapper {
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    /* BG gradient */
+    background: #646464; /* Old browsers */
+    background: -moz-linear-gradient(top,  #646464 0%, #000000 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #646464 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #646464 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#646464', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+.navbar-wrapper .navbar {
+    max-width: 1024px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-wrapper .navbar .navbar-logo {
+    flex-grow: 0;
+    min-width: 50px;
+}
+
+.navbar-wrapper .navbar .navbar-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.navbar-wrapper .navbar .navbar-end {
+    flex-grow: 0;
+}
+
+@keyframes navbarFadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes navbarFadeOut {
+  from {opacity: 1; display: block}
+  to {opacity: 0; display: block}
+}
+
+.navbar-item {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.navbar-item a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-item.level-0:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-item.level-0 a {
+    padding: 5px 20px 5px 20px;
+    color: rgb(255, 255, 255);
+}
+
+.navbar-item:not(.level-0):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.navbar-item:not(.level-0) a {
+    padding: 5px 5px 5px 5px;
+    color: rgb(0, 0, 0);
+}
+
+.navbar-submenu {
+    display: none;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border: solid rgb(150, 150, 150) 1px;
+}
+
+.navbar-submenu.visible {
+/*    animation: navbarFadeIn;
+    animation-duration: 2s;*/
+    display: block;
+}
+
+.navbar-submenu.hidden {
+/*    animation: navbarFadeOut;
+    animation-duration: 2s;*/
+    display: none;
+}
+
+.navbar-item.level-0 .navbar-submenu {
+    left: 0%;
+    top: 100%;
+    min-width: 100%;
+}
+
+.navbar-item.level-1 .navbar-submenu {
+    left: 100%;
+    top: -1px;
+}
+
+.navbar-item.level-2:first-of-type a:before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 0px;
+    width: 1px;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.content-wrapper {
+    height: 0px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.content-wrapper .page {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    height: 0px;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.footer {
+    flex-grow: 0;
+    text-align: center;
+    font-size: 0.6em;
+    padding: 5px 0px 5px 0px;
+}
+
+button {
+    background-color: #ffffff;
+    border: solid #c0c0c0 1px;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+button.submit {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: rgb(0, 128, 255);
+}
+
+button.submit:hover {
+    background-color: rgb(0, 103, 206);
+}
+
+.navbar button {
+    margin: 5px;
+}
+
+.navbar .navbar-end {
+    margin-left: 0px;
+    margin-right: 10px;
+}
+
+.dialog {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dialog.hidden {
+    display: none;
+}
+
+.dialog > .dialog-box {
+    border: solid #303030 1px;
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 200px;
+    background-color: #ffffff;
+}
+
+.dialog > .dialog-box > div {
+    padding: 5px;
+}
+
+.dialog > .dialog-box > .dialog-header {
+    position: relative;
+    border-bottom: solid #808080 1px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.dialog > .dialog-box > .dialog-content {
+    position: relative;
+    margin: 10px;
+}
+
+.dialog > .dialog-box > .dialog-footer {
+    position: relative;
+    text-align: right;
+    margin: 10px;
+}
+
+.dialog-close {
+    position: absolute;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ff0000;
+    border-radius: 4px;
+    border: solid #000000 1px;
+}
+
+.dialog-close:before {
+    content: '×';
+    color: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.names {
+    font-family: "Great Vibes", cursive;
+    color: #000000;
+    /*transform: rotateZ(-10deg);*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    white-space: nowrap;
+}
+
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.countdown .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.countdown .item .number {
+    color: #ffffff;
+    background-color: #000000;
+    border: solid #505050 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.countdown .item .number + .number {
+    margin-left: 5px;
+}
+
+.countdown .item .note {
+    color: #000000;
+}
+
+.page-home {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
