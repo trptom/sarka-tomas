@@ -177,19 +177,35 @@ body {
     height: 0px;
     flex-grow: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: stretch;
     justify-content: center;
     overflow: hidden;
 }
 
+.content-wrapper .content {
+    width: 0px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
 .content-wrapper .page {
+    /* Must be absolute because of transition animations. */
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: row;
-    height: 0px;
-    flex-grow: 1;
     overflow: auto;
 }
 

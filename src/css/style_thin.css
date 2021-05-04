@@ -21,4 +21,8 @@
     .countdown .item .number + .number {
         margin-left: 3px;
     }
+    
+    .countdown .note {
+        margin-left: 5px;
+    }
 }

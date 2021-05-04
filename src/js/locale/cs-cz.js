@@ -6,7 +6,7 @@
     
     navbar_home: 'Úvod',
     navbar_about: 'O nás',
-    navbar_program: 'Program',
+    navbar_program: 'Pro hosty',
     navbar_gallery: 'Galerie',
     navbar_administration: 'Administrace',
     navbar_login: 'Přihlásit',

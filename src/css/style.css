@@ -2,3 +2,5 @@
 @import "style_thin.css";
 @import "style_medium.css";
 @import "style_wide.css";
+
+@import "animations.css"

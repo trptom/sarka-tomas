@@ -1,8 +1,16 @@
-import React from 'react';
+import React from "react";
 import {
+  TransitionGroup,
+  CSSTransition
+} from "react-transition-group";
+import {
+  BrowserRouter as Router,
+  Switch,
   Route,
-  HashRouter,
-  Switch
+  Link,
+  Redirect,
+  useLocation,
+  useParams
 } from "react-router-dom";
 
 // utils
@@ -20,6 +28,9 @@ import Footer from './js/components/Footer';
 
 // pages
 import HomePage from './js/pages/HomePage';
+import AboutPage from './js/pages/AboutPage';
+import ProgramPage from './js/pages/ProgramPage';
+import GalleryPage from './js/pages/GalleryPage';
 
 import './css/style.css';
 
@@ -40,7 +51,7 @@ class App extends React.Component {
     
     render() {
         if (this.state.appReady) {
-            return (
+            /*return (
                 <HashRouter>
                     <div className="app">
                         <LoginDialog />
@@ -51,7 +62,17 @@ class App extends React.Component {
                         <Footer />
                     </div>
                 </HashRouter>
-            );
+            );*/
+            return <Router>
+              <Switch>
+                <Route path="*">
+                    <LoginDialog />
+                    <Navbar />
+                    <AppContent />
+                    <Footer />
+                </Route>
+              </Switch>
+            </Router>;
         } else {
             return (
                 <div className="app app-loading">
@@ -74,5 +95,27 @@ class App extends React.Component {
         });
     }
 };
+
+function AppContent() {
+    let location = useLocation();
+    
+    return (
+        <div className="content-wrapper">
+            <TransitionGroup className="content">
+                <CSSTransition
+                    key={location.key}
+                    classNames="slide"
+                    timeout={500}>
+                    <Switch location={location}>
+                        <Route exact path="/" component={HomePage}/>
+                        <Route exact path="/about" component={ProgramPage}/>
+                        <Route exact path="/program" component={ProgramPage}/>
+                        <Route exact path="/gallery" component={ProgramPage}/>
+                    </Switch>
+                </CSSTransition>
+            </TransitionGroup>
+        </div>
+    );
+}
 
 export default App;
