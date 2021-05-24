@@ -19,15 +19,21 @@ class Navbar extends React.Component {
             condition: true,
             items: null
         },
-        {
+        /*{
             title: Locale.navbar_about,
             href: '/about',
             condition: true,
             items: null
-        },
+        },*/
         {
             title: Locale.navbar_program,
             href: '/program',
+            condition: true,
+            items: null
+        },
+        {
+            title: Locale.navbar_contact,
+            href: '/contact',
             condition: true,
             items: null
         },

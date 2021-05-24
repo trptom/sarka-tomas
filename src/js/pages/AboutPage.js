@@ -6,9 +6,28 @@ import Page from './Page';
 
 class AboutPage extends Page {
     getPage() {
-        return <div className="page-about">
-            Something...
-        </div>;
+        return (
+        <div className="page-about">
+            <div className="story">
+                <div className="story-item">
+                    <img src="" />
+                    <div className="description"></div>
+                </div>
+                <div className="story-item">
+                    <img src="" />
+                    <div className="description"></div>
+                </div>
+                <div className="story-item">
+                    <img src="" />
+                    <div className="description"></div>
+                </div>
+                <div className="story-item">
+                    <img src="" />
+                    <div className="description"></div>
+                </div>
+            </div>
+        </div>
+        );
     }
 };
 

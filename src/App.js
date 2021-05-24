@@ -84,7 +84,8 @@ class App extends React.Component {
     }
     
     initApp() {
-        const getUser = UserService.getCurrentUser();
+        // Activate when user logging will be needed.
+        /*const getUser = UserService.getCurrentUser();
         
         Promise.all([getUser]).then(values => {
             this.setState({
@@ -92,6 +93,10 @@ class App extends React.Component {
             });
         }).catch(e => {
             console.log(e);
+        });*/
+        
+        this.setState({
+            appReady: true
         });
     }
 };
