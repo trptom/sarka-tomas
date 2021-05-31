@@ -1,7 +1,7 @@
 import Service from './Service'
 
 class GuestService extends Service {
-    guestAdd(firstName, familyName, willJoin, accomodation, accomodationNote, favouriteSong) {
+    guestAdd(firstName, familyName, willJoin, accomodation, note, favouriteSong) {
         return new Promise((resolve, reject) => {
             let data = {
                 first_name: firstName,
@@ -10,8 +10,8 @@ class GuestService extends Service {
                 accomodation: accomodation
             }
             
-            if (accomodationNote) {
-                data.accomodation_note = accomodationNote;
+            if (note) {
+                data.note = note;
             }
             
             if (favouriteSong) {
@@ -20,6 +20,48 @@ class GuestService extends Service {
             
             this.doRequestJSON(
                 this.getUrl("/guest-add.php"),
+                data
+            ).then(data => {
+                if (data.result === Service.RC_OK) {
+                    resolve(data);
+                } else {
+                    reject(data);
+                }
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+    
+    guestsAdd(guests, willJoin, accomodation, note) {
+        let guestsData = [];
+        
+        for (let a=0; a<guests.length; a++) {
+            let obj = {
+                first_name: guests[a].firstName,
+                family_name: guests[a].familyName
+            };
+            
+            if (guests[a].song) {
+                obj.favourite_song = guests[a].song;
+            }
+            
+            guestsData.push(obj);
+        }
+        
+        return new Promise((resolve, reject) => {
+            let data = {
+                guests: guestsData,
+                will_join: willJoin,
+                accomodation: accomodation
+            }
+            
+            if (note) {
+                data.note = note;
+            }
+            
+            this.doRequestJSON(
+                this.getUrl("/guests-add.php"),
                 data
             ).then(data => {
                 if (data.result === Service.RC_OK) {

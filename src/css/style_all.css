@@ -52,6 +52,48 @@ body {
     background-repeat: no-repeat;
 }
 
+.background {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -999;
+    overflow: hidden;
+}
+
+.background > div {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    
+    background-size: cover;
+    background-position: center;
+}
+
+.background > div.curr {
+    display: block;
+    animation-name: bg-slide-in;
+    animation-duration: 1s;
+}
+
+.background > div.next {
+    display: none;
+}
+
+.background > div.prev {
+    display: block;
+    transform: translateX(-100%);
+    animation-name: bg-slide-out;
+    animation-duration: 1s;
+}
+
+.background > div.inac {
+    display: none;
+}
+
 .navbar-wrapper {
     flex-grow: 0;
     display: flex;
@@ -72,6 +114,7 @@ body {
     flex-grow: 1;
     display: flex;
     flex-direction: row;
+    padding: 0px;
 }
 
 .navbar-wrapper .navbar .navbar-logo {
@@ -363,4 +406,44 @@ button.submit:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.page > div:not(.page-home) {
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+form.attendance {
+    max-width: 600px;
+}
+
+form.attendance .row > div:not(.no-margin) {
+    margin-top: 20px;
+}
+
+form.attendance .row > div.tiny-margin {
+    margin-top: 5px;
+}
+
+form.attendance .input-group-prepend {
+    width: 200px;
+    max-width: 50%;
+}
+
+form.attendance .input-group-prepend .input-group-text {
+    width: 100%;
+}
+
+a:not([href]) {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:not([href]):hover {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
 }

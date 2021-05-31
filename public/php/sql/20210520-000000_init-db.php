@@ -9,8 +9,10 @@ $sql =
         "    family_name varchar(64) not null,".
         "    will_join bool not null,".
         "    accomodation int not null,".
-        "    accomodation_note text not null,".
-        "    favourite_song text null default null".
+        "    note text null default null,".
+        "    favourite_song text null default null,".
+        "    ip varchar(16) not null,".
+        "    created_at timestamp not null default current_timestamp".
         ");";
 
 if ($db_connection->query($sql)) {

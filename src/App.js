@@ -31,6 +31,7 @@ import HomePage from './js/pages/HomePage';
 import AboutPage from './js/pages/AboutPage';
 import ProgramPage from './js/pages/ProgramPage';
 import GalleryPage from './js/pages/GalleryPage';
+import ContactPage from './js/pages/ContactPage';
 
 import './css/style.css';
 
@@ -115,7 +116,8 @@ function AppContent() {
                         <Route exact path="/" component={HomePage}/>
                         <Route exact path="/about" component={ProgramPage}/>
                         <Route exact path="/program" component={ProgramPage}/>
-                        <Route exact path="/gallery" component={ProgramPage}/>
+                        <Route exact path="/gallery" component={GalleryPage}/>
+                        <Route exact path="/contact" component={ContactPage}/>
                     </Switch>
                 </CSSTransition>
             </TransitionGroup>
