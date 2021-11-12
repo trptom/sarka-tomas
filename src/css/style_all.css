@@ -408,6 +408,29 @@ button.submit:hover {
     justify-content: center;
 }
 
+.page-gallery {
+    width: 100%;
+}
+
+.page-gallery a {
+    text-align: center;
+    font-weight: normal;
+    font-style: italic;
+    color: #000000;
+    display: block;
+}
+
+.page-gallery p {
+    margin-top: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.page-gallery .video-js {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .page > div:not(.page-home) {
     padding-top: 50px;
     padding-left: 10px;
